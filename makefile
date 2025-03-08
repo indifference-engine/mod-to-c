@@ -28,11 +28,11 @@ obj/%.o: src/%.c $(TOTAL_REBUILD_FILES)
 
 test: $(patsubst %, tests/%/pass, $(TESTS))
 
-tests/results/%.c: tests/%/input.mod dist/mod_to_c
+tests/%/actual.c: tests/%/input.mod dist/mod_to_c
 	mkdir -p $(dir $@)
 	dist/mod_to_c TEST_MACRO_NAME test_variable_name test/include/a.h test/include/b.h test/include/c.h < $< > $@
 
-tests/%/pass: tests/%/expected.c tests/%/expected.c
+tests/%/pass: tests/%/expected.c tests/%/actual.c
 	diff $^
 	mkdir -p $(dir $@)
 	touch $@
