@@ -7,7 +7,8 @@
 /**
  * Reads a number of unsigned 8-bit integers from standard input, halting
  * execution should the operation fail.
- * @param quantity The number of unsigned bytes to read from standard input.
+ * @param quantity The number of unsigned 8-bit integers to read from standard
+ *                 input.
  * @return A pointer to newly allocated memory containing the read unsigned
  *         8-bit integers.
  */
