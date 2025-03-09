@@ -2,7 +2,6 @@
 
 #define READ_U8S_OR_THROW_H
 
-#include <stddef.h>
 #include <stdint.h>
 
 /**
@@ -12,6 +11,6 @@
  * @return A pointer to newly allocated memory containing the read unsigned
  *         8-bit integers.
  */
-uint8_t *read_u8s_or_throw(const size_t quantity);
+uint8_t *read_u8s_or_throw(const int quantity);
 
 #endif

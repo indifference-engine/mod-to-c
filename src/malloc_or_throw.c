@@ -2,7 +2,7 @@
 #include "malloc_or_throw.h"
 #include "throw.h"
 
-void *malloc_or_throw(const size_t size)
+void *malloc_or_throw(const int size)
 {
   void *const output = malloc(size);
 

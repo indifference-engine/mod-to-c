@@ -9,6 +9,6 @@
  * should the operation fail.
  * @return The unsigned 16-bit integer read from standard input.
  */
-uint16_t read_u16_or_throw();
+uint16_t read_u16_or_throw(void);
 
 #endif

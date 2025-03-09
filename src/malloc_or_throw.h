@@ -7,6 +7,6 @@
  * @param size The number of bytes to allocate.
  * @return A pointer to the allocated memory.
  */
-void *malloc_or_throw(const size_t size);
+void *malloc_or_throw(const int size);
 
 #endif
