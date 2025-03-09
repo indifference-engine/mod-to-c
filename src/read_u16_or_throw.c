@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include "read_u8_or_throw.h"
+#include "read_u16_or_throw.h"
 
 uint16_t read_u16_or_throw(void)
 {

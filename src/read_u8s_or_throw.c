@@ -2,6 +2,7 @@
 #include <stddef.h>
 #include "read_u8_or_throw.h"
 #include "malloc_or_throw.h"
+#include "read_u8s_or_throw.h"
 
 uint8_t *read_u8s_or_throw(const int quantity)
 {
