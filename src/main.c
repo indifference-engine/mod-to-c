@@ -667,35 +667,35 @@ int main(int argc, char **argv)
           switch (effect_y)
           {
           case 0:
-            write_or_throw("    %s(%s(%d))\n", argv[33], argv[14], channel_index);
+            write_or_throw("    %s(%s(%d))\n", argv[22], argv[14], channel_index);
             break;
 
           case 1:
-            write_or_throw("    %s(%s(%d))\n", argv[34], argv[14], channel_index);
+            write_or_throw("    %s(%s(%d))\n", argv[23], argv[14], channel_index);
             break;
 
           case 2:
-            write_or_throw("    %s(%s(%d))\n", argv[35], argv[14], channel_index);
+            write_or_throw("    %s(%s(%d))\n", argv[24], argv[14], channel_index);
             break;
 
           case 3:
-            write_or_throw("    %s(%s(%d))\n", argv[36], argv[14], channel_index);
+            write_or_throw("    %s(%s(%d))\n", argv[25], argv[14], channel_index);
             break;
 
           case 4:
-            write_or_throw("    %s(%s(%d))\n", argv[37], argv[14], channel_index);
+            write_or_throw("    %s(%s(%d))\n", argv[26], argv[14], channel_index);
             break;
 
           case 5:
-            write_or_throw("    %s(%s(%d))\n", argv[38], argv[14], channel_index);
+            write_or_throw("    %s(%s(%d))\n", argv[27], argv[14], channel_index);
             break;
 
           case 6:
-            write_or_throw("    %s(%s(%d))\n", argv[39], argv[14], channel_index);
+            write_or_throw("    %s(%s(%d))\n", argv[28], argv[14], channel_index);
             break;
 
           case 7:
-            write_or_throw("    %s(%s(%d))\n", argv[40], argv[14], channel_index);
+            write_or_throw("    %s(%s(%d))\n", argv[29], argv[14], channel_index);
             break;
 
           default:
