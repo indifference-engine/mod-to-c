@@ -91,6 +91,12 @@ int main(int argc, char **argv)
           "• The name of a macro which declares a vibrato oscillator speed command (e.g. VIBRATO_SPEED_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0), 0)).\n",
           "• The name of a macro which declares a vibrato oscillator depth command (e.g. VIBRATO_DEPTH_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0), 0)).\n", // TODO: What are the units here?
           "• The name of a macro which declares a vibrato command (e.g. VIBRATO_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0)).\n",
+          "• The name of a macro which declares a command which changes the tremolo oscillator to a sinusoidal which restarts on each note and restarts it (e.g. RESTARTING_SINUSOIDAL_TREMOLO_OSCILLATOR_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0))).\n",
+          "• The name of a macro which declares a command which changes the tremolo oscillator to a sawtooth which restarts on each note and restarts it (e.g. RESTARTING_SAWTOOTH_TREMOLO_OSCILLATOR_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0))).\n",
+          "• The name of a macro which declares a command which changes the tremolo oscillator to a square which restarts on each note and restarts it (e.g. RESTARTING_SQUARE_TREMOLO_OSCILLATOR_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0))).\n",
+          "• The name of a macro which declares a command which changes the tremolo oscillator to a sinusoidal which does NOT restart on each note and restarts it (e.g. CONTINUING_SINUSOIDAL_TREMOLO_OSCILLATOR_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0))).\n",
+          "• The name of a macro which declares a command which changes the tremolo oscillator to a sawtooth which does NOT restart on each note and restarts it (e.g. CONTINUING_SAWTOOTH_TREMOLO_OSCILLATOR_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0))).\n",
+          "• The name of a macro which declares a command which changes the tremolo oscillator to a square which does NOT restart on each note and restarts it (e.g. CONTINUING_SQUARE_TREMOLO_OSCILLATOR_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0))).\n",
           "• The name of a macro which declares a tremolo oscillator speed command (e.g. TREMOLO_SPEED_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0), 0)).\n",
           "• The name of a macro which declares a tremolo oscillator depth command (e.g. TREMOLO_DEPTH_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0), 0)).\n", // TODO: What are the units here?
           "• The name of a macro which declares a tremolo command (e.g. TREMOLO_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0)).\n",
@@ -113,12 +119,6 @@ int main(int argc, char **argv)
           "• The name of a macro which declares the reversion of an invert loop command (e.g. REVERT_INVERT_LOOP_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0)).\n",
           "• The name of a macro which declares a set speed/tempo command (e.g. SET_SPEED_TEMPO_MACRO_NAME(TICK_MACRO_NAME(0)).\n",
           "• The name of a macro which declares a song (e.g. SONG_MACRO_NAME(song_name, STATE_INDEX_MACRO_NAME(0)).\n",
-          "• The name of a macro which declares a command which changes the tremolo oscillator to a sinusoidal which restarts on each note and restarts it (e.g. RESTARTING_SINUSOIDAL_TREMOLO_OSCILLATOR_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0))).\n",
-          "• The name of a macro which declares a command which changes the tremolo oscillator to a sawtooth which restarts on each note and restarts it (e.g. RESTARTING_SAWTOOTH_TREMOLO_OSCILLATOR_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0))).\n",
-          "• The name of a macro which declares a command which changes the tremolo oscillator to a square which restarts on each note and restarts it (e.g. RESTARTING_SQUARE_TREMOLO_OSCILLATOR_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0))).\n",
-          "• The name of a macro which declares a command which changes the tremolo oscillator to a sinusoidal which does NOT restart on each note and restarts it (e.g. CONTINUING_SINUSOIDAL_TREMOLO_OSCILLATOR_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0))).\n",
-          "• The name of a macro which declares a command which changes the tremolo oscillator to a sawtooth which does NOT restart on each note and restarts it (e.g. CONTINUING_SAWTOOTH_TREMOLO_OSCILLATOR_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0))).\n",
-          "• The name of a macro which declares a command which changes the tremolo oscillator to a square which does NOT restart on each note and restarts it (e.g. CONTINUING_SQUARE_TREMOLO_OSCILLATOR_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0))).\n",
           "• Any number of include paths.\n");
   }
 
@@ -366,7 +366,7 @@ int main(int argc, char **argv)
     states++;
   }
 
-  for (int index = 53; index < argc; index++)
+  for (int index = 59; index < argc; index++)
   {
     write_or_throw("#include \"%s\"\n", argv[index]);
   }
@@ -550,27 +550,27 @@ int main(int argc, char **argv)
 
         if (effect_x)
         {
-          write_or_throw("    %s(%s(%d), %d)\n", argv[31], argv[14], channel_index, effect_x);
+          write_or_throw("    %s(%s(%d), %d)\n", argv[37], argv[14], channel_index, effect_x);
         }
 
         if (effect_y)
         {
-          write_or_throw("    %s(%s(%d), %d)\n", argv[32], argv[14], channel_index, effect_y);
+          write_or_throw("    %s(%s(%d), %d)\n", argv[38], argv[14], channel_index, effect_y);
         }
 
-        write_or_throw("    %s(%s(%d))\n", argv[33], argv[14], channel_index);
+        write_or_throw("    %s(%s(%d))\n", argv[39], argv[14], channel_index);
         break;
 
       case EFFECT_TYPE_FINE_PAN:
         skipped = false;
-        write_or_throw("    %s(%s(%d), %d)\n", argv[34], argv[14], channel_index, effect_xy > 127 ? effect_xy - 256 : effect_xy);
+        write_or_throw("    %s(%s(%d), %d)\n", argv[40], argv[14], channel_index, effect_xy > 127 ? effect_xy - 256 : effect_xy);
         break;
 
       case EFFECT_TYPE_SAMPLE_OFFSET:
         skipped = false;
         // TODO: Handle not playing?
         // TODO: Check all commands provide units
-        write_or_throw("    %s(%s(%d), %d)\n", argv[36], argv[14], channel_index, effect_xy * 256);
+        write_or_throw("    %s(%s(%d), %d)\n", argv[42], argv[14], channel_index, effect_xy * 256);
         break;
 
       case EFFECT_TYPE_VOLUME_SLIDE:
@@ -583,12 +583,12 @@ int main(int argc, char **argv)
           }
           else
           {
-            write_or_throw("    %s(%s(%d), %d)\n", argv[37], argv[14], channel_index, effect_x);
+            write_or_throw("    %s(%s(%d), %d)\n", argv[43], argv[14], channel_index, effect_x);
           }
         }
         else if (effect_y)
         {
-          write_or_throw("    %s(%s(%d), %d)\n", argv[37], argv[14], channel_index, -effect_y);
+          write_or_throw("    %s(%s(%d), %d)\n", argv[43], argv[14], channel_index, -effect_y);
         }
         break;
 
@@ -600,7 +600,7 @@ int main(int argc, char **argv)
           throw("Volume outside supported range (expected 0 - 64, actual %d).", effect_xy);
         }
 
-        write_or_throw("    %s(%s(%d), %d)\n", argv[38], argv[14], channel_index, effect_xy);
+        write_or_throw("    %s(%s(%d), %d)\n", argv[44], argv[14], channel_index, effect_xy);
         break;
 
       case EFFECT_TYPE_EXTRA:
@@ -609,18 +609,18 @@ int main(int argc, char **argv)
         switch (effect_x)
         {
         case EFFECT_TYPE_EXTRA_COARSE_PAN:
-          write_or_throw("    %s(%s(%d), %d)\n", argv[35], argv[14], channel_index, effect_y > 7 ? effect_y - 16 : effect_y);
+          write_or_throw("    %s(%s(%d), %d)\n", argv[41], argv[14], channel_index, effect_y > 7 ? effect_y - 16 : effect_y);
           break;
 
         case EFFECT_TYPE_EXTRA_SET_FILTER:
           switch (effect_y)
           {
           case 0:
-            write_or_throw("    %s()\n", argv[39]);
+            write_or_throw("    %s()\n", argv[45]);
             break;
 
           case 1:
-            write_or_throw("    %s()\n", argv[40]);
+            write_or_throw("    %s()\n", argv[46]);
             break;
 
           default:
@@ -630,23 +630,23 @@ int main(int argc, char **argv)
 
         case EFFECT_TYPE_EXTRA_FINE_PORTAMENTO_UP:
           skipped = false;
-          write_or_throw("    %s(%s(%d), %s(%d))\n", argv[41], argv[14], channel_index, argv[16], effect_y);
+          write_or_throw("    %s(%s(%d), %s(%d))\n", argv[47], argv[14], channel_index, argv[16], effect_y);
           break;
 
         case EFFECT_TYPE_EXTRA_FINE_PORTAMENTO_DOWN:
           skipped = false;
-          write_or_throw("    %s(%s(%d), %s(%d))\n", argv[42], argv[14], channel_index, argv[16], effect_y);
+          write_or_throw("    %s(%s(%d), %s(%d))\n", argv[48], argv[14], channel_index, argv[16], effect_y);
           break;
 
         case EFFECT_TYPE_EXTRA_GLISSANDO:
           switch (effect_y)
           {
           case 0:
-            write_or_throw("    %s(%s(%d))\n", argv[44], argv[14], channel_index);
+            write_or_throw("    %s(%s(%d))\n", argv[50], argv[14], channel_index);
             break;
 
           case 1:
-            write_or_throw("    %s(%s(%d))\n", argv[43], argv[14], channel_index);
+            write_or_throw("    %s(%s(%d))\n", argv[49], argv[14], channel_index);
             break;
 
           default:
