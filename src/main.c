@@ -768,6 +768,10 @@ int main(int argc, char **argv)
     final_loop = next_final_loop;
   }
 
+  write_or_throw("  )\n)\n");
+
+  // TODO: Emit jump back to start if not already jumped
+
   // uint16_t states = 1;
   // uint16_t total_index_map[PATTERNS_IN_FILE * LINES * CHANNELS];
 
