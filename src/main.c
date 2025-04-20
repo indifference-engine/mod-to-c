@@ -120,7 +120,7 @@ int main(int argc, char **argv)
           "• The name of a macro which declares a retrigger command (e.g. RETRIGGER_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0), TICK_MACRO_NAME(0)).\n",
           "• The name of a macro which declares a note cut command (e.g. NOTE_CUT_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0), TICK_MACRO_NAME(0)).\n",
           "• The name of a macro which declares a note delay command (e.g. NOTE_DELAY_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0), TICK_MACRO_NAME(0)).\n",
-          "• The name of a macro which declares an invert loop command (e.g. INVERT_LOOP_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0)).\n",
+          "• The name of a macro which declares an invert loop command (e.g. INVERT_LOOP_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0), 0).\n",
           "• The name of a macro which declares the reversion of an invert loop command (e.g. REVERT_INVERT_LOOP_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0)).\n",
           "• The name of a macro which declares a set speed/tempo command (e.g. SET_SPEED_TEMPO_MACRO_NAME(TICK_MACRO_NAME(0)).\n",
           "• The name of a macro which declares a song (e.g. SONG_MACRO_NAME(song_name, STATE_INDEX_MACRO_NAME(0)).\n",
@@ -753,7 +753,7 @@ int main(int argc, char **argv)
           break;
 
         case EFFECT_TYPE_EXTRA_FINE_VOLUME_SLIDE_UP:
-          write_or_throw("    %s(%s(%d, %d))\n", argv[48], argv[14], channel_index, effect_y);
+          write_or_throw("    %s(%s(%d), %d))\n", argv[48], argv[14], channel_index, effect_y);
           break;
 
         case EFFECT_TYPE_EXTRA_FINE_VOLUME_SLIDE_DOWN:
@@ -761,11 +761,11 @@ int main(int argc, char **argv)
           break;
 
         case EFFECT_TYPE_EXTRA_NOTE_CUT:
-          write_or_throw("    %s(%s(%d, %d))\n", argv[58], argv[14], channel_index, effect_y);
+          write_or_throw("    %s(%s(%d), %d))\n", argv[58], argv[14], channel_index, effect_y);
           break;
 
         case EFFECT_TYPE_EXTRA_NOTE_DELAY:
-          write_or_throw("    %s(%s(%d, %d))\n", argv[59], argv[14], channel_index, effect_y);
+          write_or_throw("    %s(%s(%d), %d))\n", argv[59], argv[14], channel_index, effect_y);
           break;
 
         case EFFECT_TYPE_EXTRA_PATTERN_DELAY:
@@ -773,7 +773,14 @@ int main(int argc, char **argv)
           break;
 
         case EFFECT_TYPE_EXTRA_INVERT_LOOP:
-          // TODO.
+          if (effect_y == 0)
+          {
+            write_or_throw("    %s(%s(%d))\n", argv[61], argv[14], channel_index);
+          }
+          else
+          {
+            write_or_throw("    %s(%s(%d), %d))\n", argv[60], argv[14], channel_index, effect_y);
+          }
           break;
 
         default:
