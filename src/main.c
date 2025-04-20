@@ -57,10 +57,10 @@ int main(int argc, char **argv)
   (void)(argc);
   (void)(argv);
 
-  if (argc < 59)
+  if (argc < 60)
   {
-    throw("%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s",
-          "At least 62 arguments are required:\n",
+    throw("%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s",
+          "At least 63 arguments are required:\n",
           "• The name of the song.\n",
           "• The name of a macro which declares an instrument index (e.g. INSTRUMENT_INDEX_MACRO_NAME(0)).\n",
           "• The name of a macro which declares a fine tuning (e.g. FINE_TUNING_MACRO_NAME(0)).\n",
@@ -108,6 +108,7 @@ int main(int argc, char **argv)
           "• The name of a macro which declares a coarse pan command (e.g. COARSE_PAN_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0), 0).\n",
           "• The name of a macro which declares a sample offset command (e.g. SAMPLE_OFFSET_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0), SAMPLE_INDEX_MACRO_NAME(0)).\n",
           "• The name of a macro which declares a volume slide command (e.g. VOLUME_SLIDE_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0), 0).\n",
+          "• The name of a macro which declares a fine volume slide command (e.g. FINE_VOLUME_SLIDE_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0), 0).\n",
           "• The name of a macro which declares a volume command (e.g. VOLUME_COMMAND_MACRO_NAME(CHANNEL_INDEX_MACRO_NAME(0), VOLUME_MACRO_NAME(0)).\n",
           "• The name of a macro which declares an enable filter command (e.g. ENABLE_FILTER_COMMAND_MACRO_NAME().\n",
           "• The name of a macro which declares a disable filter command (e.g. DISABLE_FILTER_COMMAND_MACRO_NAME().\n",
@@ -370,12 +371,12 @@ int main(int argc, char **argv)
     states++;
   }
 
-  for (int index = 63; index < argc; index++)
+  for (int index = 64; index < argc; index++)
   {
     write_or_throw("#include \"%s\"\n", argv[index]);
   }
 
-  if (argc > 53 && instruments > 0)
+  if (argc > 64 && instruments > 0)
   {
     write_or_throw("\n");
   }
@@ -443,7 +444,7 @@ int main(int argc, char **argv)
     }
   }
 
-  if (argc > 53 && instruments > 0)
+  if (argc > 64 && instruments > 0)
   {
     write_or_throw("\n");
   }
@@ -604,7 +605,7 @@ int main(int argc, char **argv)
           throw("Volume outside supported range (expected 0 - 64, actual %d).", effect_xy);
         }
 
-        write_or_throw("    %s(%s(%d), %d)\n", argv[48], argv[14], channel_index, effect_xy);
+        write_or_throw("    %s(%s(%d), %d)\n", argv[49], argv[14], channel_index, effect_xy);
         break;
 
       case EFFECT_TYPE_EXTRA:
@@ -620,11 +621,11 @@ int main(int argc, char **argv)
           switch (effect_y)
           {
           case 0:
-            write_or_throw("    %s()\n", argv[49]);
+            write_or_throw("    %s()\n", argv[50]);
             break;
 
           case 1:
-            write_or_throw("    %s()\n", argv[50]);
+            write_or_throw("    %s()\n", argv[51]);
             break;
 
           default:
@@ -634,23 +635,23 @@ int main(int argc, char **argv)
 
         case EFFECT_TYPE_EXTRA_FINE_PORTAMENTO_UP:
           skipped = false;
-          write_or_throw("    %s(%s(%d), %s(%d))\n", argv[51], argv[14], channel_index, argv[16], effect_y);
+          write_or_throw("    %s(%s(%d), %s(%d))\n", argv[52], argv[14], channel_index, argv[16], effect_y);
           break;
 
         case EFFECT_TYPE_EXTRA_FINE_PORTAMENTO_DOWN:
           skipped = false;
-          write_or_throw("    %s(%s(%d), %s(%d))\n", argv[52], argv[14], channel_index, argv[16], effect_y);
+          write_or_throw("    %s(%s(%d), %s(%d))\n", argv[53], argv[14], channel_index, argv[16], effect_y);
           break;
 
         case EFFECT_TYPE_EXTRA_GLISSANDO:
           switch (effect_y)
           {
           case 0:
-            write_or_throw("    %s(%s(%d))\n", argv[54], argv[14], channel_index);
+            write_or_throw("    %s(%s(%d))\n", argv[55], argv[14], channel_index);
             break;
 
           case 1:
-            write_or_throw("    %s(%s(%d))\n", argv[53], argv[14], channel_index);
+            write_or_throw("    %s(%s(%d))\n", argv[54], argv[14], channel_index);
             break;
 
           default:
@@ -752,11 +753,11 @@ int main(int argc, char **argv)
           break;
 
         case EFFECT_TYPE_EXTRA_FINE_VOLUME_SLIDE_UP:
-          // TODO
+          write_or_throw("    %s(%s(%d, %d))\n", argv[48], argv[14], channel_index, effect_y);
           break;
 
         case EFFECT_TYPE_EXTRA_FINE_VOLUME_SLIDE_DOWN:
-          // TODO
+          write_or_throw("    %s(%s(%d, -%d))\n", argv[48], argv[14], channel_index, effect_y);
           break;
 
         case EFFECT_TYPE_EXTRA_NOTE_CUT:
