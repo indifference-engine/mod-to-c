@@ -761,7 +761,7 @@ int main(int argc, char **argv)
           break;
 
         case EFFECT_TYPE_EXTRA_NOTE_CUT:
-          // TODO.
+          write_or_throw("    %s(%s(%d, %d))\n", argv[58], argv[14], channel_index, effect_y);
           break;
 
         case EFFECT_TYPE_EXTRA_NOTE_DELAY:
