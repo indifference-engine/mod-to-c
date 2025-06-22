@@ -11,6 +11,8 @@ const uint8_t *playlist_pattern_indices;
 void read_playlist_or_throw() {
   playlist_length = read_u8_or_throw();
 
+  // TODO: Range check?
+
   skip_or_throw(1);
 
   playlist_pattern_indices = read_u8s_or_throw(playlist_length);
