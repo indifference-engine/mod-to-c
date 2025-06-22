@@ -1,4 +1,5 @@
 #include "instruments.h"
+#include "read_s8s_or_throw.h"
 #include "read_u16_or_throw.h"
 #include "read_u8_or_throw.h"
 #include "skip_or_throw.h"
@@ -10,6 +11,7 @@ int8_t instrument_fine_tunings[INSTRUMENTS];
 uint8_t instrument_volumes[INSTRUMENTS];
 uint16_t instrument_repeat_points[INSTRUMENTS];
 uint16_t instrument_repeat_lengths[INSTRUMENTS];
+const int8_t *instrument_samples[INSTRUMENTS];
 
 void read_instrument_headers_or_throw() {
   for (uint8_t instrument_index = 0; instrument_index < INSTRUMENTS;
@@ -40,11 +42,8 @@ void read_instrument_headers_or_throw() {
               instrument_index + 1, volume);
       }
 
-      uint16_t repeat_point = instrument_repeat_points[instrument_index] =
-          read_u16_or_throw();
-
-      uint16_t repeat_length = instrument_lengths[instrument_index] =
-          read_u16_or_throw();
+      uint16_t repeat_point = read_u16_or_throw();
+      uint16_t repeat_length = read_u16_or_throw();
 
       // NOTE: Some non-looping instruments incorrectly have a repeat point of 0
       // and a repeat length of 1; we need to detect this and correct it.
@@ -63,5 +62,13 @@ void read_instrument_headers_or_throw() {
               repeat_point + repeat_length);
       }
     }
+  }
+}
+
+void read_instrument_samples_or_throw() {
+  for (uint8_t instrument_index = 0; instrument_index < INSTRUMENTS;
+       instrument_index++) {
+    instrument_samples[instrument_index] =
+        read_s8s_or_throw(instrument_lengths[instrument_index]);
   }
 }
