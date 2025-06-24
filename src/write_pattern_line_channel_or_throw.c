@@ -45,7 +45,7 @@ void write_pattern_line_channel_or_throw(const uint8_t pattern_index,
                                          const uint16_t overall_index) {
   write_or_throw("%s\n            %s(\n              %s(%s),\n              "
                  "%s(%d),\n      "
-                 "        %s(%d),\n",
+                 "        %s(%d),\n              %s(%d),\n",
                  channel_index == 0 ? "" : ",", pattern_line_channel_macro_name,
                  song_name_macro_name, song_name, pattern_index_macro_name,
                  pattern_index, line_index_macro_name, line_index,
@@ -54,33 +54,35 @@ void write_pattern_line_channel_or_throw(const uint8_t pattern_index,
   const uint16_t period = pattern_line_channel_periods[overall_index];
 
   if (period == 0) {
-    write_or_throw("              %s(%s(%s), %s(%d), %s(%d)),\n",
+    write_or_throw("              %s(%s(%s), %s(%d), %s(%d), %s(%d)),\n",
                    period_not_specified_macro_name, song_name_macro_name,
                    song_name, pattern_index_macro_name, pattern_index,
                    line_index_macro_name, line_index, channel_index_macro_name,
                    channel_index);
   } else {
-    write_or_throw("              %s(%s(%s), %s(%d), %s(%d), %s(%d)),\n",
-                   period_specified_macro_name, song_name_macro_name, song_name,
-                   pattern_index_macro_name, pattern_index,
-                   line_index_macro_name, line_index, channel_index_macro_name,
-                   channel_index, period_macro_name, period);
+    write_or_throw(
+        "              %s(%s(%s), %s(%d), %s(%d), %s(%d), %s(%d)),\n",
+        period_specified_macro_name, song_name_macro_name, song_name,
+        pattern_index_macro_name, pattern_index, line_index_macro_name,
+        line_index, channel_index_macro_name, channel_index, period_macro_name,
+        period);
   }
 
   const uint8_t instrument = pattern_line_channel_instruments[overall_index];
 
   if (instrument == 255) {
-    write_or_throw("              %s(%s(%s), %s(%d), %s(%d)),\n",
+    write_or_throw("              %s(%s(%s), %s(%d), %s(%d), %s(%d)),\n",
                    instrument_not_specified_macro_name, song_name_macro_name,
                    song_name, pattern_index_macro_name, pattern_index,
                    line_index_macro_name, line_index, channel_index_macro_name,
                    channel_index);
   } else {
-    write_or_throw("              %s(%s(%s), %s(%d), %s(%d), %s(%d)),\n",
-                   instrument_specified_macro_name, song_name_macro_name,
-                   song_name, pattern_index_macro_name, pattern_index,
-                   line_index_macro_name, line_index, channel_index_macro_name,
-                   channel_index, instrument_index_macro_name, instrument);
+    write_or_throw(
+        "              %s(%s(%s), %s(%d), %s(%d), %s(%d), %s(%d)),\n",
+        instrument_specified_macro_name, song_name_macro_name, song_name,
+        pattern_index_macro_name, pattern_index, line_index_macro_name,
+        line_index, channel_index_macro_name, channel_index,
+        instrument_index_macro_name, instrument);
   }
 
   const uint16_t effect = pattern_line_channel_effects[overall_index];
@@ -326,7 +328,7 @@ void write_pattern_line_channel_or_throw(const uint8_t pattern_index,
       switch (effect_y) {
       case 0:
         write_or_throw(
-            "              %s(%s(%s), %s(%d), %s(%d))\n            )",
+            "              %s(%s(%s), %s(%d), %s(%d), %s(%d))\n            )",
             enable_filter_effect_macro_name, song_name_macro_name, song_name,
             pattern_index_macro_name, pattern_index, line_index_macro_name,
             line_index, channel_index_macro_name, channel_index);
@@ -334,7 +336,7 @@ void write_pattern_line_channel_or_throw(const uint8_t pattern_index,
 
       case 1:
         write_or_throw(
-            "              %s(%s(%s), %s(%d), %s(%d))\n            )",
+            "              %s(%s(%s), %s(%d), %s(%d), %s(%d))\n            )",
             disable_filter_effect_macro_name, song_name_macro_name, song_name,
             pattern_index_macro_name, pattern_index, line_index_macro_name,
             line_index, channel_index_macro_name, channel_index);
