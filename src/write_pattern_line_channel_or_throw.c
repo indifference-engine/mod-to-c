@@ -312,13 +312,14 @@ void write_pattern_line_channel_or_throw(const uint8_t pattern_index,
   case EFFECT_TYPE_EXTRA:
     switch (effect_x) {
     case EFFECT_TYPE_EXTRA_COARSE_PAN:
-      // write_or_throw(
-      //     "              %s(%s(%s), %s(%d), %s(%d), %s(%d), %s(%d))\n",
-      //     coarse_pan_effect_macro_name, song_name_macro_name, song_name,
-      //     pattern_index_macro_name, pattern_index, line_index_macro_name,
-      //     line_index, channel_index_macro_name, channel_index,
-      //     coarse_panning_macro_name, effect_y > 7 ? effect_y - 16 :
-      //     effect_y);
+      write_or_throw("              %s(%s(%s), %s(%d), %s(%d), %s(%d), "
+                     "%s(%d))\n            )",
+                     coarse_pan_effect_macro_name, song_name_macro_name,
+                     song_name, pattern_index_macro_name, pattern_index,
+                     line_index_macro_name, line_index,
+                     channel_index_macro_name, channel_index,
+                     coarse_panning_macro_name,
+                     effect_y >= 8 ? effect_y - 7 : effect_y - 8);
       break;
 
     case EFFECT_TYPE_EXTRA_SET_FILTER:

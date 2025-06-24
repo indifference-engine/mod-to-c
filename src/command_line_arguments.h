@@ -615,8 +615,8 @@ extern const char *sixty_fourth_loops_per_tick_macro_name;
 extern const char *fine_panning_macro_name;
 
 /**
- * The name of the macro to use for a "coarse" panning (0 = left, 7 = right),
- * e.g. COARSE_PANNING_MACRO_NAME(12).
+ * The name of the macro to use for a "coarse" panning (-8 = left, 8 = right),
+ * e.g. COARSE_PANNING_MACRO_NAME(-4).
  */
 extern const char *coarse_panning_macro_name;
 
