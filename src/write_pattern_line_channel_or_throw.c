@@ -1,6 +1,7 @@
 #include "write_pattern_line_channel_or_throw.h"
 #include "command_line_arguments.h"
 #include "patterns.h"
+#include "playlist.h"
 #include "throw.h"
 #include "write_or_throw.h"
 #include <stdint.h>
@@ -139,19 +140,19 @@ void write_pattern_line_channel_or_throw(const uint8_t pattern_index,
     break;
 
   case EFFECT_TYPE_POSITION_JUMP:
-    if (effect_xy >= patterns) {
+    if (effect_xy >= playlist_length) {
       throw("Position jump pattern index in channel %d of line %d of pattern "
             "%d is outside of the expected range (expected 0 - %d, actual %d).",
-            channel_index + 1, line_index + 1, pattern_index + 1, patterns - 1,
-            effect_xy);
+            channel_index + 1, line_index + 1, pattern_index + 1,
+            playlist_length - 1, effect_xy);
     }
 
-    // write_or_throw("              %s(%s(%s), %s(%d), %s(%d), %s(%d)),\n",
-    //                position_jump_effect_macro_name, song_name_macro_name,
-    //                song_name, pattern_index_macro_name, pattern_index,
-    //                line_index_macro_name, line_index,
-    //                channel_index_macro_name, channel_index,
-    //                pattern_index_macro_name, effect_xy);
+    write_or_throw("              %s(%s(%s), %s(%d), %s(%d), %s(%d), %s(%d))\n "
+                   "           )",
+                   position_jump_effect_macro_name, song_name_macro_name,
+                   song_name, pattern_index_macro_name, pattern_index,
+                   line_index_macro_name, line_index, channel_index_macro_name,
+                   channel_index, playlist_index_macro_name, effect_xy);
     break;
 
   case EFFECT_TYPE_COARSE_PORTAMENTO_UP:
