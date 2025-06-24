@@ -243,13 +243,13 @@ void write_pattern_line_channel_or_throw(const uint8_t pattern_index,
     break;
 
   case EFFECT_TYPE_TREMOLO:
-    // write_or_throw(
-    //     "              %s(%s(%s), %s(%d), %s(%d), %s(%d), %s(%d)),\n",
-    //     tremolo_effect_macro_name, song_name_macro_name, song_name,
-    //     pattern_index_macro_name, pattern_index, line_index_macro_name,
-    //     line_index, channel_index_macro_name, channel_index,
-    //     sixty_fourth_loops_per_tick_macro_name, effect_x, volumes_macro_name,
-    //     effect_y);
+    write_or_throw("              %s(%s(%s), %s(%d), %s(%d), %s(%d), %s(%d), "
+                   "%s(%d))\n            )",
+                   tremolo_effect_macro_name, song_name_macro_name, song_name,
+                   pattern_index_macro_name, pattern_index,
+                   line_index_macro_name, line_index, channel_index_macro_name,
+                   channel_index, sixty_fourth_loops_per_tick_macro_name,
+                   effect_x, volumes_macro_name, effect_y);
     break;
 
   case EFFECT_TYPE_FINE_PAN:
