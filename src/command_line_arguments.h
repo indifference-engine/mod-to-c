@@ -288,6 +288,15 @@ extern const char *volume_slide_effect_macro_name;
 
 /**
  * The name of the macro to use to declare that a channel within a line of a
+ * pattern specifies a volume slide + tone portamento effect, e.g.
+ * VOLUME_SLIDE_EFFECT_MACRO_NAME(SONG_NAME_MACRO_NAME(...),
+ * PATTERN_INDEX_MACRO_NAME(...), LINE_INDEX_MACRO_NAME(...),
+ * CHANNEL_INDEX_MACRO_NAME(...), VOLUME_PER_TICK_MACRO_NAME(...)).
+ */
+extern const char *volume_slide_tone_portamento_effect_macro_name;
+
+/**
+ * The name of the macro to use to declare that a channel within a line of a
  * pattern specifies a volume effect, e.g.
  * VOLUME_SLIDE_EFFECT_MACRO_NAME(SONG_NAME_MACRO_NAME(...),
  * PATTERN_INDEX_MACRO_NAME(...), LINE_INDEX_MACRO_NAME(...),

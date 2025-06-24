@@ -42,6 +42,8 @@ const char *tremolo_effect_macro_name = "TREMOLO_EFFECT_MACRO_NAME";
 const char *fine_pan_effect_macro_name = "FINE_PAN_EFFECT_MACRO_NAME";
 const char *sample_offset_effect_macro_name = "SAMPLE_OFFSET_EFFECT_MACRO_NAME";
 const char *volume_slide_effect_macro_name = "VOLUME_SLIDE_EFFECT_MACRO_NAME";
+const char *volume_slide_tone_portamento_effect_macro_name =
+    "VOLUME_SLIDE_TONE_PORTAMENTO_EFFECT_MACRO_NAME";
 const char *volume_effect_macro_name = "VOLUME_EFFECT_MACRO_NAME";
 const char *coarse_pan_effect_macro_name = "COARSE_PAN_EFFECT_MACRO_NAME";
 const char *enable_filter_effect_macro_name = "ENABLE_FILTER_EFFECT_MACRO_NAME";
