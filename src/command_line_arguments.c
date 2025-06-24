@@ -15,6 +15,7 @@ const char *instrument_sample_macro_name = "INSTRUMENT_SAMPLE_MACRO_NAME";
 const char *pattern_list_macro_name = "PATTERN_LIST_MACRO_NAME";
 const char *pattern_macro_name = "PATTERN_MACRO_NAME";
 const char *pattern_index_macro_name = "PATTERN_INDEX_MACRO_NAME";
+const char *playlist_index_macro_name = "PLAYLIST_INDEX_MACRO_NAME";
 const char *pattern_line_list_macro_name = "PATTERN_LINE_LIST_MACRO_NAME";
 const char *pattern_line_macro_name = "PATTERN_LINE_MACRO_NAME";
 const char *line_index_macro_name = "LINE_INDEX_MACRO_NAME";

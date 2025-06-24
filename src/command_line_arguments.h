@@ -93,6 +93,12 @@ extern const char *pattern_macro_name;
 extern const char *pattern_index_macro_name;
 
 /**
+ * The name of the macro to use for a playlist index
+ * (0 - (playlist length - 1)), e.g. PATTERN_INDEX_MACRO_NAME(17).
+ */
+extern const char *playlist_index_macro_name;
+
+/**
  * The name of the macro to use for a list of lines within a pattern, e.g.
  * PATTERN_LINE_LIST_MACRO_NAME(PATTERN_LINE_MACRO_NAME(...), ...).
  */
