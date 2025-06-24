@@ -217,7 +217,7 @@ extern const char *pattern_break_effect_macro_name;
  * pattern specifies a position break effect, e.g.
  * PATTERN_BREAK_EFFECT_MACRO_NAME(SONG_NAME_MACRO_NAME(...),
  * PATTERN_INDEX_MACRO_NAME(...), LINE_INDEX_MACRO_NAME(...),
- * CHANNEL_INDEX_MACRO_NAME(...), PATTERN_INDEX_MACRO_NAME(...)).
+ * CHANNEL_INDEX_MACRO_NAME(...), PLAYLIST_INDEX_MACRO_NAME(...)).
  */
 extern const char *position_jump_effect_macro_name;
 
