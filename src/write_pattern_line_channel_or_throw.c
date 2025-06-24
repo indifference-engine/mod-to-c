@@ -192,7 +192,31 @@ void write_pattern_line_channel_or_throw(const uint8_t pattern_index,
                    effect_x, periods_macro_name, effect_y);
     break;
 
-    // TODO VOLUME SLIDE TONE PORTAMENTO
+  case EFFECT_TYPE_VOLUME_SLIDE_TONE_PORTAMENTO:
+    if (effect_x == 0) {
+      write_or_throw("              %s(%s(%s), %s(%d), %s(%d), %s(%d), "
+                     "%s(%d))\n            )",
+                     volume_slide_tone_portamento_effect_macro_name,
+                     song_name_macro_name, song_name, pattern_index_macro_name,
+                     pattern_index, line_index_macro_name, line_index,
+                     channel_index_macro_name, channel_index,
+                     volume_per_tick_macro_name, -effect_y);
+    } else if (effect_y == 0) {
+      write_or_throw("              %s(%s(%s), %s(%d), %s(%d), %s(%d), "
+                     "%s(%d))\n            )",
+                     volume_slide_tone_portamento_effect_macro_name,
+                     song_name_macro_name, song_name, pattern_index_macro_name,
+                     pattern_index, line_index_macro_name, line_index,
+                     channel_index_macro_name, channel_index,
+                     volume_per_tick_macro_name, effect_x);
+    } else {
+      throw("Simultaneous volume slide up and down (as part of tone "
+            "portamento) in channel %d of line %d "
+            "of pattern %d.",
+            channel_index + 1, line_index + 1, pattern_index + 1);
+    }
+    break;
+
     // TODO VOLUME SLIDE VIBRATO
 
   case EFFECT_TYPE_TREMOLO:
