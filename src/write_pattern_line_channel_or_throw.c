@@ -301,12 +301,12 @@ void write_pattern_line_channel_or_throw(const uint8_t pattern_index,
             channel_index + 1, line_index + 1, pattern_index + 1, effect_xy);
     }
 
-    // write_or_throw("              %s(%s(%s), %s(%d), %s(%d), %s(%d)),\n",
-    //                volume_effect_macro_name, song_name_macro_name, song_name,
-    //                pattern_index_macro_name, pattern_index,
-    //                line_index_macro_name, line_index,
-    //                channel_index_macro_name, channel_index,
-    //                volume_macro_name, effect_xy);
+    write_or_throw("              %s(%s(%s), %s(%d), %s(%d), %s(%d), %s(%d))\n "
+                   "           )",
+                   volume_effect_macro_name, song_name_macro_name, song_name,
+                   pattern_index_macro_name, pattern_index,
+                   line_index_macro_name, line_index, channel_index_macro_name,
+                   channel_index, volume_macro_name, effect_xy);
     break;
 
   case EFFECT_TYPE_EXTRA:
