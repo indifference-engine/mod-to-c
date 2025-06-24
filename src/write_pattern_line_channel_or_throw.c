@@ -271,29 +271,27 @@ void write_pattern_line_channel_or_throw(const uint8_t pattern_index,
     break;
 
   case EFFECT_TYPE_VOLUME_SLIDE:
-    // TODO: Swap
-    if (effect_x) {
-      if (effect_y) {
-        throw("Simultaneous volume slide up and down in channel %d of line %d "
-              "of pattern %d.",
-              channel_index + 1, line_index + 1, pattern_index + 1);
-      }
-
-      // write_or_throw("              %s(%s(%s), %s(%d), %s(%d), %s(%d)),\n",
-      //                volume_slide_effect_macro_name, song_name_macro_name,
-      //                song_name, pattern_index_macro_name, pattern_index,
-      //                line_index_macro_name, line_index,
-      //                channel_index_macro_name, channel_index,
-      //                volume_per_tick_macro_name, effect_x);
-    } else if (effect_y) {
-      // write_or_throw("              %s(%s(%s), %s(%d), %s(%d), %s(%d)),\n",
-      //                volume_slide_effect_macro_name, song_name_macro_name,
-      //                song_name, pattern_index_macro_name, pattern_index,
-      //                line_index_macro_name, line_index,
-      //                channel_index_macro_name, channel_index,
-      //                volume_per_tick_macro_name, -effect_y);
+    if (effect_x == 0) {
+      write_or_throw("              %s(%s(%s), %s(%d), %s(%d), %s(%d), "
+                     "%s(%d))\n            )",
+                     volume_slide_effect_macro_name, song_name_macro_name,
+                     song_name, pattern_index_macro_name, pattern_index,
+                     line_index_macro_name, line_index,
+                     channel_index_macro_name, channel_index,
+                     volume_per_tick_macro_name, -effect_y);
+    } else if (effect_y == 0) {
+      write_or_throw("              %s(%s(%s), %s(%d), %s(%d), %s(%d), "
+                     "%s(%d))\n            )",
+                     volume_slide_effect_macro_name, song_name_macro_name,
+                     song_name, pattern_index_macro_name, pattern_index,
+                     line_index_macro_name, line_index,
+                     channel_index_macro_name, channel_index,
+                     volume_per_tick_macro_name, effect_x);
+    } else {
+      throw("Simultaneous volume slide up and down in channel %d of line %d of "
+            "pattern %d.",
+            channel_index + 1, line_index + 1, pattern_index + 1);
     }
-    // todo: emit when 0
     break;
 
   case EFFECT_TYPE_VOLUME:
