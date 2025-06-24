@@ -609,7 +609,7 @@ extern const char *periods_macro_name;
 extern const char *sixty_fourth_loops_per_tick_macro_name;
 
 /**
- * The name of the macro to use for a "fine" panning (0 = left, 255 = right),
+ * The name of the macro to use for a "fine" panning (-128 = left, 127 = right),
  * e.g. FINE_PANNING_MACRO_NAME(12).
  */
 extern const char *fine_panning_macro_name;
