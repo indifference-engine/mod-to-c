@@ -4,8 +4,7 @@ const char *song_name_macro_name = "SONG_NAME_MACRO_NAME";
 const char *instrument_list_macro_name = "INSTRUMENT_LIST_MACRO_NAME";
 const char *instrument_macro_name = "INSTRUMENT_MACRO_NAME";
 const char *instrument_index_macro_name = "INSTRUMENT_INDEX_MACRO_NAME";
-const char *instrument_fine_tuning_macro_name =
-    "INSTRUMENT_FINE_TUNING_MACRO_NAME";
+const char *fine_tuning_macro_name = "FINE_TUNING_MACRO_NAME";
 const char *volume_macro_name = "VOLUME_MACRO_NAME";
 const char *instrument_repeat_point_macro_name =
     "INSTRUMENT_REPEAT_POINT_MACRO_NAME";

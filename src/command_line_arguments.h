@@ -29,7 +29,7 @@ extern const char *instrument_list_macro_name;
 /**
  * The name of the macro to use for an instrument, e.g.
  * INSTRUMENT_MACRO_NAME(SONG_NAME_MACRO_NAME(...),
- * INSTRUMENT_INDEX_MACRO_NAME(...), INSTRUMENT_FINE_TUNING_MACRO_NAME(...),
+ * INSTRUMENT_INDEX_MACRO_NAME(...), FINE_TUNING_MACRO_NAME(...),
  * VOLUME_MACRO_NAME(...), INSTRUMENT_REPEAT_POINT_MACRO_NAME(...),
  * INSTRUMENT_SAMPLE_LIST_MACRO_NAME(...)).
  */
@@ -42,10 +42,10 @@ extern const char *instrument_macro_name;
 extern const char *instrument_index_macro_name;
 
 /**
- * The name of the macro to use for an instrument's fine tuning (-8 to 7), e.g.
- * INSTRUMENT_FINE_TUNING_MACRO_NAME(-4).
+ * The name of the macro to use for a fine tuning (-8 to 7), e.g.
+ * FINE_TUNING_MACRO_NAME(-4).
  */
-extern const char *instrument_fine_tuning_macro_name;
+extern const char *fine_tuning_macro_name;
 
 /**
  * The name of the macro to use for a volume level (0 to 64), e.g.

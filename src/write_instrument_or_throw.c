@@ -12,7 +12,7 @@ void write_instrument_or_throw(const uint8_t instrument_index) {
       "   %s(",
       instrument_index == 0 ? "" : ",", instrument_macro_name,
       song_name_macro_name, song_name, instrument_index_macro_name,
-      instrument_index, instrument_fine_tuning_macro_name,
+      instrument_index, fine_tuning_macro_name,
       instrument_fine_tunings[instrument_index], volume_macro_name,
       instrument_volumes[instrument_index], instrument_repeat_point_macro_name,
       instrument_repeat_points[instrument_index],
