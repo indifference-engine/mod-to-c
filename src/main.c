@@ -14,12 +14,8 @@
 #define LINES 64
 #define PATTERNS_IN_FILE 64
 
-int main(int argc, char **argv) {
-  (void)(argc);
-  (void)(argv);
-
-  // todo: read args
-
+int main(const int argc, const char *const *const argv) {
+  read_command_line_arguments_or_throw(argc, argv);
   reopen_stdin_as_read_only_binary_or_throw();
   skip_or_throw(20);
   read_instrument_headers_or_throw();

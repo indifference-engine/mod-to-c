@@ -697,4 +697,13 @@ extern const char *retrigger_effect_macro_name;
  */
 extern const char *fine_tune_effect_macro_name;
 
+/**
+ * Reads the command line arguments, halting execution should the operation
+ * fail.
+ * @param argc The number of command line arguments.
+ * @param argv The contents of the command line arguments.
+ */
+void read_command_line_arguments_or_throw(const int argc,
+                                          const char *const *const argv);
+
 #endif
