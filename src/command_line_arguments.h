@@ -681,11 +681,20 @@ extern const char *start_pattern_loop_effect_macro_name;
 
 /**
  * The name of the macro to use to declare that a channel within a line of a
- * pattern specifies retrigger effect, e.g.
+ * pattern specifies a retrigger effect, e.g.
  * RETRIGGER_EFFECT_MACRO_NAME(SONG_NAME_MACRO_NAME(...),
  * PATTERN_INDEX_MACRO_NAME(...), LINE_INDEX_MACRO_NAME(...),
  * CHANNEL_INDEX_MACRO_NAME(...), DELAY_TICKS_MACRO_NAME(...)).
  */
 extern const char *retrigger_effect_macro_name;
+
+/**
+ * The name of the macro to use to declare that a channel within a line of a
+ * pattern specifies a set fine-tune effect, e.g.
+ * FINETUNE_EFFECT_MACRO_NAME(SONG_NAME_MACRO_NAME(...),
+ * PATTERN_INDEX_MACRO_NAME(...), LINE_INDEX_MACRO_NAME(...),
+ * CHANNEL_INDEX_MACRO_NAME(...), FINE_TUNING_MACRO_NAME(...)).
+ */
+extern const char *fine_tune_effect_macro_name;
 
 #endif

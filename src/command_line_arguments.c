@@ -115,3 +115,4 @@ const char *configure_pattern_loop_effect_macro_name =
 const char *start_pattern_loop_effect_macro_name =
     "START_PATTERN_LOOP_EFFECT_MACRO_NAME";
 const char *retrigger_effect_macro_name = "RETRIGGER_EFFECT_MACRO_NAME";
+const char *fine_tune_effect_macro_name = "FINE_TUNE_EFFECT_MACRO_NAME";
