@@ -513,75 +513,75 @@ void write_pattern_line_channel_or_throw(const uint8_t pattern_index,
     case EFFECT_TYPE_EXTRA_TREMOLO_WAVEFORM:
       switch (effect_y) {
       case 0:
-        // write_or_throw(
-        //     "              %s(%s(%s), %s(%d), %s(%d))\n",
-        //     retriggering_sine_tremolo_effect_macro_name,
-        //     song_name_macro_name, song_name, pattern_index_macro_name,
-        //     pattern_index, line_index_macro_name, line_index,
-        //     channel_index_macro_name, channel_index);
+        write_or_throw(
+            "              %s(%s(%s), %s(%d), %s(%d), %s(%d))\n            )",
+            retriggering_sine_tremolo_effect_macro_name, song_name_macro_name,
+            song_name, pattern_index_macro_name, pattern_index,
+            line_index_macro_name, line_index, channel_index_macro_name,
+            channel_index);
         break;
 
       case 1:
-        // write_or_throw("              %s(%s(%s), %s(%d), %s(%d))\n",
-        //                retriggering_sawtooth_tremolo_effect_macro_name,
-        //                song_name_macro_name, song_name,
-        //                pattern_index_macro_name, pattern_index,
-        //                line_index_macro_name, line_index,
-        //                channel_index_macro_name, channel_index);
+        write_or_throw(
+            "              %s(%s(%s), %s(%d), %s(%d), %s(%d))\n            )",
+            retriggering_sawtooth_tremolo_effect_macro_name,
+            song_name_macro_name, song_name, pattern_index_macro_name,
+            pattern_index, line_index_macro_name, line_index,
+            channel_index_macro_name, channel_index);
         break;
 
       case 2:
-        // write_or_throw(
-        //     "              %s(%s(%s), %s(%d), %s(%d))\n",
-        //     retriggering_square_tremolo_effect_macro_name,
-        //     song_name_macro_name, song_name, pattern_index_macro_name,
-        //     pattern_index, line_index_macro_name, line_index,
-        //     channel_index_macro_name, channel_index);
+        write_or_throw(
+            "              %s(%s(%s), %s(%d), %s(%d), %s(%d))\n            )",
+            retriggering_square_tremolo_effect_macro_name, song_name_macro_name,
+            song_name, pattern_index_macro_name, pattern_index,
+            line_index_macro_name, line_index, channel_index_macro_name,
+            channel_index);
         break;
 
       case 3:
-        // write_or_throw(
-        //     "              %s(%s(%s), %s(%d), %s(%d))\n",
-        //     retriggering_random_tremolo_effect_macro_name,
-        //     song_name_macro_name, song_name, pattern_index_macro_name,
-        //     pattern_index, line_index_macro_name, line_index,
-        //     channel_index_macro_name, channel_index);
+        write_or_throw(
+            "              %s(%s(%s), %s(%d), %s(%d), %s(%d))\n            )",
+            retriggering_random_tremolo_effect_macro_name, song_name_macro_name,
+            song_name, pattern_index_macro_name, pattern_index,
+            line_index_macro_name, line_index, channel_index_macro_name,
+            channel_index);
         break;
 
       case 4:
-        // write_or_throw(
-        //     "              %s(%s(%s), %s(%d), %s(%d))\n",
-        //     continuous_sine_tremolo_effect_macro_name, song_name_macro_name,
-        //     song_name, pattern_index_macro_name, pattern_index,
-        //     line_index_macro_name, line_index, channel_index_macro_name,
-        //     channel_index);
+        write_or_throw(
+            "              %s(%s(%s), %s(%d), %s(%d), %s(%d))\n            )",
+            continuous_sine_tremolo_effect_macro_name, song_name_macro_name,
+            song_name, pattern_index_macro_name, pattern_index,
+            line_index_macro_name, line_index, channel_index_macro_name,
+            channel_index);
         break;
 
       case 5:
-        // write_or_throw(
-        //     "              %s(%s(%s), %s(%d), %s(%d))\n",
-        //     continuous_sawtooth_tremolo_effect_macro_name,
-        //     song_name_macro_name, song_name, pattern_index_macro_name,
-        //     pattern_index, line_index_macro_name, line_index,
-        //     channel_index_macro_name, channel_index);
+        write_or_throw(
+            "              %s(%s(%s), %s(%d), %s(%d), %s(%d))\n            )",
+            continuous_sawtooth_tremolo_effect_macro_name, song_name_macro_name,
+            song_name, pattern_index_macro_name, pattern_index,
+            line_index_macro_name, line_index, channel_index_macro_name,
+            channel_index);
         break;
 
       case 6:
-        // write_or_throw(
-        //     "              %s(%s(%s), %s(%d), %s(%d))\n",
-        //     continuous_square_tremolo_effect_macro_name,
-        //     song_name_macro_name, song_name, pattern_index_macro_name,
-        //     pattern_index, line_index_macro_name, line_index,
-        //     channel_index_macro_name, channel_index);
+        write_or_throw(
+            "              %s(%s(%s), %s(%d), %s(%d), %s(%d))\n            )",
+            continuous_square_tremolo_effect_macro_name, song_name_macro_name,
+            song_name, pattern_index_macro_name, pattern_index,
+            line_index_macro_name, line_index, channel_index_macro_name,
+            channel_index);
         break;
 
       case 7:
-        // write_or_throw(
-        //     "              %s(%s(%s), %s(%d), %s(%d))\n",
-        //     continuous_random_tremolo_effect_macro_name,
-        //     song_name_macro_name, song_name, pattern_index_macro_name,
-        //     pattern_index, line_index_macro_name, line_index,
-        //     channel_index_macro_name, channel_index);
+        write_or_throw(
+            "              %s(%s(%s), %s(%d), %s(%d), %s(%d))\n            )",
+            continuous_random_tremolo_effect_macro_name, song_name_macro_name,
+            song_name, pattern_index_macro_name, pattern_index,
+            line_index_macro_name, line_index, channel_index_macro_name,
+            channel_index);
         break;
       }
       break;
