@@ -7,6 +7,6 @@
  * should the operation fail.
  * @param file The file to re-open as binary.
  */
-void reopen_stdout_as_write_only_binary_or_throw();
+void reopen_stdout_as_write_only_binary_or_throw(void);
 
 #endif

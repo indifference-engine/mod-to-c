@@ -5,7 +5,7 @@
 #include "reopen_stdout_as_write_only_binary_or_throw.h"
 #include "throw.h"
 
-void reopen_stdout_as_write_only_binary_or_throw() {
+void reopen_stdout_as_write_only_binary_or_throw(void) {
 #ifdef __MINGW32__
   if (_setmode(_fileno(stdout), O_BINARY) == -1)
 #else
