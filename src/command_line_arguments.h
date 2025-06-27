@@ -149,7 +149,6 @@ extern const char *channel_index_macro_name;
  */
 extern const char *period_not_specified_macro_name;
 
-// TODO: Wrap period here
 /**
  * The name of the macro to use to declare that a channel within a line of a
  * pattern specifies a period, e.g.
