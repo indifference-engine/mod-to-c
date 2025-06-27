@@ -86,6 +86,7 @@ const char *configure_pattern_loop_effect_macro_name;
 const char *start_pattern_loop_effect_macro_name;
 const char *retrigger_effect_macro_name;
 const char *fine_tune_effect_macro_name;
+const char *playlist_macro_name;
 const char *const *includes;
 int number_of_includes;
 
@@ -95,7 +96,7 @@ void read_command_line_arguments_or_throw(const int argc,
     throw(
         "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s"
         "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s"
-        "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s",
+        "%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s%s",
         "• The name of the song, e.g. example_song_name.\n",
         "• The name of the macro to use for a song, e.g. "
         "SONG_MACRO_NAME(SONG_NAME_MACRO_NAME(...), "
@@ -463,6 +464,8 @@ void read_command_line_arguments_or_throw(const int argc,
         "FINETUNE_EFFECT_MACRO_NAME(SONG_NAME_MACRO_NAME(...), "
         "PATTERN_INDEX_MACRO_NAME(...), LINE_INDEX_MACRO_NAME(...), "
         "CHANNEL_INDEX_MACRO_NAME(...), FINE_TUNING_MACRO_NAME(...)).",
+        "• The name of the macro to use for a song's playlist, e.g. "
+        "PLAYLIST_MACRO_NAME(PATTERN_INDEX_MACRO_NAME(...), ...).",
         "• Any number of include paths.");
   }
 
@@ -551,6 +554,7 @@ void read_command_line_arguments_or_throw(const int argc,
   start_pattern_loop_effect_macro_name = argv[83];
   retrigger_effect_macro_name = argv[84];
   fine_tune_effect_macro_name = argv[85];
-  includes = argv + 86;
-  number_of_includes = argc - 86;
+  playlist_macro_name = argv[86];
+  includes = argv + 87;
+  number_of_includes = argc - 87;
 }

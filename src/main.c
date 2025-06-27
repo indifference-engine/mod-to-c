@@ -72,9 +72,13 @@ int main(const int argc, const char *const *const argv) {
     write_or_throw("\n      )\n    )");
   }
 
+  write_or_throw("\n  ),\n  %s(", playlist_macro_name);
+
   for (uint8_t playlist_index = 0; playlist_index < playlist_length;
        playlist_index++) {
-    // TODO
+    write_or_throw("%s\n    %s(%d)", playlist_index == 0 ? "" : ",",
+                   playlist_index_macro_name,
+                   playlist_pattern_indices[playlist_index]);
   }
 
   write_or_throw("\n  )\n)\n");

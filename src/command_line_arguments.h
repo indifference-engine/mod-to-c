@@ -697,6 +697,12 @@ extern const char *retrigger_effect_macro_name;
 extern const char *fine_tune_effect_macro_name;
 
 /**
+ * The name of the macro to use for a song's playlist, e.g.
+ * PLAYLIST_MACRO_NAME(PATTERN_INDEX_MACRO_NAME(...), ...).
+ */
+extern const char *playlist_macro_name;
+
+/**
  * The include paths to add to the top of the generated files.
  */
 extern const char *const *includes;
