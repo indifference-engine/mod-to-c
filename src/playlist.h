@@ -18,6 +18,6 @@ extern const uint8_t *playlist_pattern_indices;
  * Reads the playlist from standard input, halting execution should the
  * operation fail.
  */
-void read_playlist_or_throw();
+void read_playlist_or_throw(void);
 
 #endif

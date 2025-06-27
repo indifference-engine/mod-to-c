@@ -46,12 +46,12 @@ extern const int8_t *instrument_samples[INSTRUMENTS];
  * Reads everything but the samples themselves for each instrument from standard
  * input, halting execution should the operation fail.
  */
-void read_instrument_headers_or_throw();
+void read_instrument_headers_or_throw(void);
 
 /**
  * Reads the samples of each instrument from standard input, halting execution
  * should the operation fail.
  */
-void read_instrument_samples_or_throw();
+void read_instrument_samples_or_throw(void);
 
 #endif

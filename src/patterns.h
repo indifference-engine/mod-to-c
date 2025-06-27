@@ -39,6 +39,6 @@ extern uint16_t *pattern_line_channel_effects;
  * Reads the playlist from standard input, halting execution should the
  * operation fail.
  */
-void read_patterns_or_throw();
+void read_patterns_or_throw(void);
 
 #endif
