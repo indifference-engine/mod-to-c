@@ -11,7 +11,11 @@ const uint8_t *playlist_pattern_indices;
 void read_playlist_or_throw() {
   playlist_length = read_u8_or_throw();
 
-  // TODO: Range check?
+  if (playlist_length < 1 || playlist_length > 128) {
+    throw("The length of the playlist is outside the supported range (expected "
+          "1 - 128, actual %d).",
+          playlist_length);
+  }
 
   skip_or_throw(1);
 
