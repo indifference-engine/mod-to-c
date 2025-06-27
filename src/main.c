@@ -3,6 +3,7 @@
 #include "patterns.h"
 #include "playlist.h"
 #include "reopen_stdin_as_read_only_binary_or_throw.h"
+#include "reopen_stdout_as_write_only_binary_or_throw.h"
 #include "skip_or_throw.h"
 #include "version.h"
 #include "write_instrument_or_throw.h"
@@ -23,6 +24,8 @@ int main(const int argc, const char *const *const argv) {
   read_version_or_throw();
   read_patterns_or_throw();
   read_instrument_samples_or_throw();
+
+  reopen_stdout_as_write_only_binary_or_throw();
 
   for (int include_index = 0; include_index < number_of_includes;
        include_index++) {
