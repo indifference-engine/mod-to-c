@@ -24,7 +24,14 @@ int main(const int argc, const char *const *const argv) {
   read_patterns_or_throw();
   read_instrument_samples_or_throw();
 
-  // TODO: Includes
+  for (int include_index = 0; include_index < number_of_includes;
+       include_index++) {
+    write_or_throw("#include \"%s\"\n", includes[include_index]);
+  }
+
+  if (number_of_includes > 0) {
+    write_or_throw("\n");
+  }
 
   write_or_throw("%s(\n  %s(%s),\n  %s(", song_macro_name, song_name_macro_name,
                  song_name, instrument_list_macro_name);

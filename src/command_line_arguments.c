@@ -86,6 +86,8 @@ const char *configure_pattern_loop_effect_macro_name;
 const char *start_pattern_loop_effect_macro_name;
 const char *retrigger_effect_macro_name;
 const char *fine_tune_effect_macro_name;
+const char *const *includes;
+int number_of_includes;
 
 void read_command_line_arguments_or_throw(const int argc,
                                           const char *const *const argv) {
@@ -549,4 +551,6 @@ void read_command_line_arguments_or_throw(const int argc,
   start_pattern_loop_effect_macro_name = argv[83];
   retrigger_effect_macro_name = argv[84];
   fine_tune_effect_macro_name = argv[85];
+  includes = argv + 86;
+  number_of_includes = argc - 86;
 }

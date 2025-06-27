@@ -698,6 +698,16 @@ extern const char *retrigger_effect_macro_name;
 extern const char *fine_tune_effect_macro_name;
 
 /**
+ * The include paths to add to the top of the generated files.
+ */
+extern const char *const *includes;
+
+/**
+ * The number of include paths to add to the top of the generated files.
+ */
+extern int number_of_includes;
+
+/**
  * Reads the command line arguments, halting execution should the operation
  * fail.
  * @param argc The number of command line arguments.
