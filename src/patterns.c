@@ -38,7 +38,6 @@ void read_patterns_or_throw() {
     for (uint8_t line_index = 0; line_index < LINES; line_index++) {
       for (uint8_t channel_index = 0; channel_index < CHANNELS;
            channel_index++) {
-        // TODO: Consolidate!
         const uint8_t a = read_u8_or_throw();
         const uint8_t b = read_u8_or_throw();
         const uint8_t c = read_u8_or_throw();
