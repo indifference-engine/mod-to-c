@@ -13,7 +13,7 @@ uint16_t instrument_repeat_points[INSTRUMENTS];
 uint16_t instrument_repeat_lengths[INSTRUMENTS];
 const int8_t *instrument_samples[INSTRUMENTS];
 
-void read_instrument_headers_or_throw() {
+void read_instrument_headers_or_throw(void) {
   for (uint8_t instrument_index = 0; instrument_index < INSTRUMENTS;
        instrument_index++) {
     skip_or_throw(22);
@@ -65,7 +65,7 @@ void read_instrument_headers_or_throw() {
   }
 }
 
-void read_instrument_samples_or_throw() {
+void read_instrument_samples_or_throw(void) {
   for (uint8_t instrument_index = 0; instrument_index < INSTRUMENTS;
        instrument_index++) {
     instrument_samples[instrument_index] =

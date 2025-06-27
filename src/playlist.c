@@ -8,7 +8,7 @@
 uint8_t playlist_length;
 const uint8_t *playlist_pattern_indices;
 
-void read_playlist_or_throw() {
+void read_playlist_or_throw(void) {
   playlist_length = read_u8_or_throw();
 
   if (playlist_length < 1 || playlist_length > 128) {

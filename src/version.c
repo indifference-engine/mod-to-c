@@ -2,7 +2,7 @@
 #include "throw.h"
 #include <stdint.h>
 
-void read_version_or_throw() {
+void read_version_or_throw(void) {
   const uint8_t *const version_marker = read_u8s_or_throw(4);
 
   if (version_marker[0] != 77 || version_marker[1] != 46 ||

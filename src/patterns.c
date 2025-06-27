@@ -11,7 +11,7 @@ uint8_t *pattern_line_channel_instruments;
 uint16_t *pattern_line_channel_periods;
 uint16_t *pattern_line_channel_effects;
 
-void read_patterns_or_throw() {
+void read_patterns_or_throw(void) {
   patterns = 0;
 
   for (uint8_t playlist_index = 0; playlist_index < playlist_length;
